@@ -1,0 +1,38 @@
+---
+import { company } from '../data/site';
+interface Props { short?: boolean }
+const { short = false } = Astro.props;
+const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || '';
+const types = ['Site', 'Magazin online', 'Aplicație', 'Design UI/UX', 'Logo și brand', 'Abonament de design', 'Mentenanță'];
+const budgets = ['Sub 600 €', '600–1.000 €', '1.000–1.500 €', '1.500–3.000 €', 'Peste 3.000 €', 'Nu știu încă'];
+const id = short ? 'f2' : 'f1';
+---
+<form class="form" data-form data-endpoint={endpoint} data-email={company.email} novalidate>
+  <input type="hidden" name="subject" value={short ? 'Mesaj nou de pe tudoo.ro' : 'Cerere de ofertă de pe tudoo.ro'} />
+  <div class="hp" aria-hidden="true"><label for={`${id}-web`}>Nu completa</label><input id={`${id}-web`} name="website" tabindex="-1" autocomplete="off" /></div>
+  {!short && (
+    <>
+      <fieldset class="field full"><legend>Ce ai nevoie?</legend>
+        <div class="chips">{types.map((t, i) => (<label><input type="checkbox" name="tip" value={t} id={`${id}-t${i}`} /><span>{t}</span></label>))}</div>
+      </fieldset>
+      <fieldset class="field full"><legend>Buget orientativ</legend>
+        <div class="chips">{budgets.map((b, i) => (<label><input type="radio" name="buget" value={b} id={`${id}-b${i}`} /><span>{b}</span></label>))}</div>
+      </fieldset>
+    </>
+  )}
+  <div class="field"><label for={`${id}-name`}>Nume</label><input id={`${id}-name`} name="nume" autocomplete="name" required /></div>
+  <div class="field"><label for={`${id}-email`}>Email</label><input id={`${id}-email`} name="email" type="email" autocomplete="email" required /></div>
+  {!short && (
+    <>
+      <div class="field"><label for={`${id}-phone`}>Telefon (opțional)</label><input id={`${id}-phone`} name="telefon" type="tel" autocomplete="tel" /></div>
+      <div class="field"><label for={`${id}-firm`}>Firmă (opțional)</label><input id={`${id}-firm`} name="firma" autocomplete="organization" /></div>
+      <div class="field full"><label for={`${id}-when`}>Până când ai nevoie de el?</label>
+        <select id={`${id}-when`} name="termen"><option value="">Alege</option><option>Cât mai repede</option><option>În 1 lună</option><option>În 2–3 luni</option><option>Nu e grabă</option></select>
+      </div>
+    </>
+  )}
+  <div class="field full"><label for={`${id}-msg`}>{short ? 'Mesaj' : 'Spune-ne pe scurt despre proiect'}</label><textarea id={`${id}-msg`} name="mesaj" required></textarea></div>
+  <label class="agree full" for={`${id}-gdpr`}><input id={`${id}-gdpr`} type="checkbox" name="acord" value="da" required /><span>Sunt de acord ca datele mele să fie folosite pentru a primi un răspuns, conform <a href="/confidentialitate">politicii de confidențialitate</a>.</span></label>
+  <div class="full ctas"><button class="btn dark" type="submit"><span class="dot"></span>{short ? 'Trimite mesajul' : 'Trimite cererea'}</button></div>
+  <p class="form-msg full" role="status" aria-live="polite" hidden></p>
+</form>

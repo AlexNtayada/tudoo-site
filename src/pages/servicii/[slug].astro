@@ -1,0 +1,44 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import PriceTable from '../../components/PriceTable.astro';
+import Faq from '../../components/Faq.astro';
+import ServiceCards from '../../components/ServiceCards.astro';
+import Cta from '../../components/Cta.astro';
+import { services, type Service } from '../../data/site';
+
+export function getStaticPaths() {
+  return services.map((s) => ({ params: { slug: s.slug }, props: { s } }));
+}
+const { s } = Astro.props as { s: Service };
+const others = services.filter((o) => o.slug !== s.slug).slice(0, 3).map((o) => o.slug);
+const rowLabel = s.slug === 'abonament-design' ? 'Plan' : s.slug === 'site-uri' ? 'Pachet' : 'Serviciu';
+---
+<Base title={s.title} description={`${s.title} pentru firme mici, de la ${s.from}. ${s.short}`}>
+  <PageHead title={s.title} lead={s.intro} crumbs={[{ href: '/servicii', label: 'Servicii' }, { href: `/servicii/${s.slug}`, label: s.title }]}>
+    <div class="ctas" data-reveal><a class="btn dark" href="/cere-oferta"><span class="dot"></span>Cere ofertă</a><span class="status">de la <b style="color:var(--ink);margin-left:4px">{s.from}</b></span></div>
+  </PageHead>
+
+  <section class="in sec split">
+    <div class="sec-head" style="margin:0"><h2>Ce primești.</h2></div>
+    <ul class="checks" style="font-size:18px;gap:14px">{s.bullets.map((b) => <li>{b}</li>)}</ul>
+  </section>
+
+  <section class="in sec">
+    <div class="sec-head"><h2>Prețuri.</h2><p>Prețuri în euro, fără TVA. Plata se face în lei, la cursul BNR din ziua facturării.</p></div>
+    <PriceTable rows={s.rows} first={rowLabel} />
+    {s.note && <p class="note-line">{s.note}</p>}
+  </section>
+
+  <section class="in sec split">
+    <div class="sec-head" style="margin:0"><h2>Întrebări.</h2></div>
+    <Faq items={s.faq} />
+  </section>
+
+  <section class="in sec">
+    <div class="sec-head"><h2>Alte servicii.</h2><a class="link" href="/servicii">Toate serviciile</a></div>
+    <ServiceCards only={others} />
+  </section>
+
+  <Cta />
+</Base>

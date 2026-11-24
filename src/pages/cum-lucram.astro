@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Cta from '../components/Cta.astro';
+import { steps } from '../data/site';
+const bring = ['Domeniul (aproximativ 10 € pe an pentru .ro)', 'Logo-ul, dacă ai unul', 'Textele și pozele', 'Acces la domeniu, pentru lansare'];
+---
+<Base title="Cum lucrăm" description="Cei 7 pași de la prima discuție la lansarea site-ului: ofertă fixă în 24 de ore, design în 3–5 zile, 30 de zile de suport gratuit.">
+  <PageHead title="De la discuție <em>la lansare.</em>" lead="Șapte pași simpli. Știi mereu în ce etapă suntem și ce urmează." crumbs={[{ href: '/cum-lucram', label: 'Cum lucrăm' }]} />
+  <section class="in sec">
+    <ol class="steps" data-stagger>{steps.map((s) => <li><b>{s.t}</b><span>{s.d}</span></li>)}</ol>
+  </section>
+  <section class="in sec split">
+    <div class="sec-head" style="margin:0"><h2>Ce aduci tu.</h2><p>Dacă nu ai textele sau pozele, le putem face noi, contra cost.</p></div>
+    <ul class="checks" style="font-size:18px;gap:14px">{bring.map((b) => <li>{b}</li>)}</ul>
+  </section>
+  <Cta />
+</Base>

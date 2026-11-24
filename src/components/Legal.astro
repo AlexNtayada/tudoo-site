@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from './PageHead.astro';
+interface Props { title: string; description: string; slug: string; updated: string }
+const { title, description, slug, updated } = Astro.props;
+---
+<Base title={title} description={description}>
+  <PageHead title={title} crumbs={[{ href: `/${slug}`, label: title }]} />
+  <article class="in"><div class="prose">
+    <p class="todo-box">Model de text, de verificat împreună cu un jurist sau contabil înainte de lansare. Câmpurile între paranteze drepte trebuie completate.</p>
+    <p style="color:var(--muted)">Ultima actualizare: {updated}</p>
+    <slot />
+  </div></article>
+</Base>

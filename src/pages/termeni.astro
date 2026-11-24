@@ -1,0 +1,24 @@
+---
+import Legal from '../components/Legal.astro';
+import { company } from '../data/site';
+---
+<Legal title="Termeni și condiții" slug="termeni" updated="24 noiembrie 2026" description="Termenii de folosire a site-ului tudoo.ro și condițiile generale pentru serviciile Tudoo.">
+  <h2>1. Cine suntem</h2>
+  <p>Site-ul tudoo.ro este administrat de {company.legalName}, cu sediul în {company.address}, CUI {company.cui}, {company.regCom} („Tudoo”, „noi”). Ne poți scrie la <a href={`mailto:${company.email}`}>{company.email}</a>.</p>
+  <h2>2. Folosirea site-ului</h2>
+  <p>Conținutul site-ului (texte, design, imagini, logo) aparține Tudoo și nu poate fi copiat sau folosit în scop comercial fără acordul nostru scris. Exemplele marcate „Concept” sunt lucrări demonstrative, nu proiecte realizate pentru clienți.</p>
+  <h2>3. Prețuri și oferte</h2>
+  <p>Prețurile de pe site sunt orientative, în euro, fără TVA, și se plătesc în lei la cursul BNR din ziua facturării. Prețul final, termenul și ce e inclus se stabilesc în oferta scrisă și în contractul semnat pentru fiecare proiect.</p>
+  <h2>4. Plata și livrarea</h2>
+  <ul>
+    <li>Pentru proiecte: 50% avans la semnarea contractului și 50% la lansare.</li>
+    <li>Abonamentele se plătesc lunar, în avans, și pot fi oprite cu 7 zile înainte de următoarea plată.</li>
+    <li>Termenele curg de la primirea avansului și a materialelor necesare de la client.</li>
+  </ul>
+  <h2>5. Drepturi asupra lucrărilor</h2>
+  <p>După plata integrală, clientul primește drepturile de folosire asupra site-ului, designului sau logo-ului livrat, conform contractului. Putem prezenta lucrarea în portofoliu doar cu acordul clientului.</p>
+  <h2>6. Răspundere</h2>
+  <p>Facem tot ce ne stă în putere ca informațiile de pe site să fie corecte și actuale, dar nu răspundem pentru întreruperi ale site-ului cauzate de terți (furnizori de găzduire, rețea).</p>
+  <h2>7. Litigii</h2>
+  <p>Orice neînțelegere o rezolvăm mai întâi pe cale amiabilă. Consumatorii se pot adresa și Autorității Naționale pentru Protecția Consumatorilor, prin procedura de soluționare alternativă a litigiilor: <a href="https://anpc.ro/ce-este-sal/" rel="noopener" target="_blank">anpc.ro/ce-este-sal</a>.</p>
+</Legal>

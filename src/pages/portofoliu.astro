@@ -1,0 +1,32 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import MiniSite from '../components/MiniSite.astro';
+import Cta from '../components/Cta.astro';
+import { minis } from '../data/site';
+// TODO: înlocuiește conceptele cu proiectele reale (nume, ce am făcut, capturi, link).
+const items = [
+  { m: 6, title: 'Cabinet stomatologic', tags: ['Site de prezentare', 'Programări online'], bg: 'linear-gradient(135deg,#2F4BFF,#7B8CFF)' },
+  { m: 4, title: 'Cafenea de cartier', tags: ['Logo', 'Landing page'], bg: '#FFD84D' },
+  { m: 2, title: 'Atelier de ceramică', tags: ['Magazin online'], bg: 'var(--night)' },
+  { m: 0, title: 'Florărie', tags: ['Magazin online', 'Livrare în aceeași zi'], bg: '#FFE4E9' },
+  { m: 1, title: 'Frizerie', tags: ['Aplicație de programări'], bg: '#F59E0B' },
+  { m: 5, title: 'Studio de yoga', tags: ['Design UI/UX', 'Landing page'], bg: '#E4E8FF' },
+  { m: 3, title: 'Brutărie', tags: ['Logo și ghid de brand', 'Site de prezentare'], bg: '#FDBA74' },
+  { m: 7, title: 'Service auto', tags: ['Landing page'], bg: 'var(--soft)' },
+];
+---
+<Base title="Portofoliu" description="Exemple de site-uri, magazine online și aplicații pe care le facem pentru firme mici.">
+  <PageHead title="Cum ar putea arăta <em>site-ul tău.</em>" lead="Mai jos sunt concepte desenate de noi pentru tipuri de firme cu care lucrăm des. Proiectele pentru clienți le adăugăm aici pe măsură ce primim acordul lor." crumbs={[{ href: '/portofoliu', label: 'Portofoliu' }]} />
+  <section class="in sec">
+    <div class="projects">
+      {items.map((p) => (
+        <div class="proj">
+          <div class="vis" style={`background:${p.bg}`}><MiniSite site={minis[p.m]} wide /></div>
+          <div class="meta"><h3>{p.title}</h3><div class="tags"><span class="concept">Concept</span>{p.tags.map((t) => <span>{t}</span>)}</div></div>
+        </div>
+      ))}
+    </div>
+  </section>
+  <Cta title="Vrei unul la fel de bun?" />
+</Base>

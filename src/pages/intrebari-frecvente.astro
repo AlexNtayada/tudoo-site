@@ -1,0 +1,14 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { faqs } from '../data/site';
+const ld = { '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqs.map((f) => ({ '@type': 'Question', name: f.q, acceptedAnswer: { '@type': 'Answer', text: f.a } })) };
+---
+<Base title="Întrebări frecvente" description="Răspunsuri despre prețuri, plată, termene și ce primești când lucrezi cu Tudoo.">
+  <PageHead title="Întrebări <em>frecvente.</em>" crumbs={[{ href: '/intrebari-frecvente', label: 'Întrebări frecvente' }]} />
+  <section class="in sec"><Faq items={faqs} /></section>
+  <Cta title="N-ai găsit răspunsul?" text="Scrie-ne și îți răspundem în cel mult o zi lucrătoare." />
+  <script type="application/ld+json" set:html={JSON.stringify(ld)} />
+</Base>

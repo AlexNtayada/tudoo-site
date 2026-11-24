@@ -1,0 +1,18 @@
+---
+import { services } from '../data/site';
+interface Props { only?: string[] }
+const { only } = Astro.props;
+const list = only ? services.filter((s) => only.includes(s.slug)) : services;
+---
+<div class="svc" data-stagger>
+  {list.map((s, i) => (
+    <a class="card" href={`/servicii/${s.slug}`}>
+      <span class="num">{String(i + 1).padStart(2, '0')}</span>
+      <h3>{s.title}</h3>
+      <p>{s.short}</p>
+      <ul class="checks">{s.bullets.slice(0, 4).map((b) => <li>{b}</li>)}</ul>
+      <div class="price">de la<b>{s.from}</b></div>
+      <span class="more">Detalii și prețuri →</span>
+    </a>
+  ))}
+</div>

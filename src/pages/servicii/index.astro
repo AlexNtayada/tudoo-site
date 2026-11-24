@@ -1,0 +1,11 @@
+---
+import Base from '../../layouts/Base.astro';
+import PageHead from '../../components/PageHead.astro';
+import ServiceCards from '../../components/ServiceCards.astro';
+import Cta from '../../components/Cta.astro';
+---
+<Base title="Servicii" description="Site-uri și aplicații, magazine online, design UI/UX, abonament de design, logo și ghid de brand, mentenanță. Prețuri fixe pentru firme mici.">
+  <PageHead title="Tot ce-ți trebuie <em>online.</em>" lead="Șase servicii, fiecare cu preț fix și termen clar. Alege ce ai nevoie sau combină-le într-un pachet." crumbs={[{ href: '/servicii', label: 'Servicii' }]} />
+  <section class="in sec"><ServiceCards /></section>
+  <Cta />
+</Base>

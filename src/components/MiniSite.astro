@@ -1,0 +1,15 @@
+---
+import { icons, type Mini } from '../data/site';
+interface Props { site: Mini; wide?: boolean; badge?: boolean }
+const { site: s, wide = false, badge = false } = Astro.props;
+const style = `--sb:${s.bg};--sf:${s.fg};--sa:${s.ac};--sk:${s.ak};--si:${s.si};--art:${s.art}`;
+---
+<div class:list={['ms', { wide }]} style={style}>
+  <div class="ms-bar"><i></i><i></i><i></i><span>concept · {s.kind}</span></div>
+  <div class="ms-body">
+    <div class="ms-nav"><b>{s.n}</b><s></s><s></s><em>{s.b}</em></div>
+    <p class="ms-h">{s.h}</p>
+    <div class="ms-art"><svg viewBox="0 0 48 48" aria-hidden="true" set:html={icons[s.ic]} /></div>
+  </div>
+  {badge && <span class="ms-ok"><svg viewBox="0 0 22 22" aria-hidden="true"><path d="M6 11.5l3.2 3.2L16 8" fill="none" stroke="#0B0C10" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/></svg>bifat</span>}
+</div>

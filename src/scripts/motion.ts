@@ -87,7 +87,8 @@ export function initMotion() {
   };
   fromClean('.site-header .nav > *', { y: -12, opacity: 0, duration: 1, stagger: .08, ease: EASE, delay: .1 });
   document.querySelectorAll<HTMLElement>('[data-split]').forEach((h) => {
-    gsap.from(splitWords(h), { yPercent: 115, rotate: 4, duration: 1.5, stagger: .055, ease: EASE, delay: .15 });
+    const ws = splitWords(h);
+    gsap.from(ws, { yPercent: 115, rotate: 4, duration: 1.5, stagger: .055, ease: EASE, delay: .15, onComplete: () => ws.forEach((w) => w.parentElement?.classList.add('done')) });
   });
   gsap.from('.page-head [data-reveal], .mosaic .status, .mosaic .lead, .mosaic .ctas', { y: 24, opacity: 0, duration: 1.2, stagger: .08, ease: EASE, delay: .5 });
 
@@ -159,22 +160,23 @@ export function initMotion() {
     lenis.on('scroll', paint); paint();
   }
 
-  // carusel: merge singur, accelerează la scroll, încetinește la hover, se trage cu inerție
+  // carusel: merge singur, accelerează la scroll, nu se oprește la hover; după ce e tras cu mouse-ul se oprește (cu inerție) și repornește când mouse-ul iese de pe el
   const reel = document.getElementById('reel');
   const track = reel?.querySelector<HTMLElement>('.track');
   if (reel && track) {
     track.innerHTML += track.innerHTML;
     track.querySelectorAll('.shot:nth-child(n+' + (track.children.length / 2 + 1) + ')').forEach((s) => s.setAttribute('aria-hidden', 'true'));
-    let down = false, hover = false, sx = 0, sl = 0, vel = 0, lastX = 0, cur = .7, boost = 0;
-    reel.addEventListener('pointerenter', () => { hover = true; });
-    reel.addEventListener('pointerleave', () => { hover = false; });
+    let down = false, dragged = false, resume = 0, sx = 0, sl = 0, vel = 0, lastX = 0, cur = .7, boost = 0;
+    reel.addEventListener('pointerleave', (e) => { if (e.pointerType === 'mouse' && !down) dragged = false; });
+    reel.addEventListener('touchstart', () => { dragged = true; clearTimeout(resume); }, { passive: true });
+    reel.addEventListener('touchend', () => { resume = window.setTimeout(() => { dragged = false; }, 4000); }, { passive: true });
     reel.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; down = true; sx = lastX = e.clientX; sl = reel.scrollLeft; vel = 0; reel.classList.add('drag'); });
-    window.addEventListener('pointerup', () => { down = false; reel.classList.remove('drag'); });
-    reel.addEventListener('pointermove', (e) => { if (!down) return; reel.scrollLeft = sl - (e.clientX - sx); vel = lastX - e.clientX; lastX = e.clientX; });
+    window.addEventListener('pointerup', () => { if (down && !reel.matches(':hover')) dragged = false; down = false; reel.classList.remove('drag'); });
+    reel.addEventListener('pointermove', (e) => { if (!down) return; if (Math.abs(e.clientX - sx) > 4) dragged = true; reel.scrollLeft = sl - (e.clientX - sx); vel = lastX - e.clientX; lastX = e.clientX; });
     lenis.on('scroll', (l: Lenis) => { boost = Math.min(14, Math.abs(l.velocity || 0) * .6); });
     const half = () => track.scrollWidth / 2;
     gsap.ticker.add(() => {
-      if (!down) { const target = hover ? .12 : .7 + boost; cur += (target - cur) * .06; vel *= .94; reel.scrollLeft += cur + vel; boost *= .92; }
+      if (!down) { const target = dragged ? 0 : .7 + boost; cur += (target - cur) * .06; vel *= .94; reel.scrollLeft += cur + vel; boost *= .92; }
       if (reel.scrollLeft >= half()) reel.scrollLeft -= half();
       if (reel.scrollLeft <= 0) reel.scrollLeft += half();
     });

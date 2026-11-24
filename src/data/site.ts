@@ -40,7 +40,7 @@ export const services: Service[] = [
     slug: 'site-uri',
     num: '01',
     title: 'Site-uri și aplicații',
-    short: 'De la o pagină simplă la un site cu mai multe pagini sau o aplicație web.',
+    short: 'De la o pagină simplă la un site cu mai multe pagini, un magazin online sau o aplicație web.',
     from: '900 €',
     intro:
       'Facem site-uri care arată bine pe orice ecran, se încarcă repede și îi ajută pe clienți să te contacteze. Știi prețul și termenul înainte să începem.',
@@ -57,6 +57,7 @@ export const services: Service[] = [
       { name: 'Site de prezentare', what: 'Până la 5 pagini, blog simplu, 2 runde de modificări', time: '2–3 săptămâni', price: '1.300 €' },
       { name: 'Site extins', what: 'Până la 10 pagini, blog, a doua limbă opțională, 3 runde de modificări', time: '3–4 săptămâni', price: '1.800 €' },
       { name: 'Mini-aplicație', what: 'Un singur instrument: programări simple, calculator de ofertă, configurator sau formular avansat', time: '2–3 săptămâni', price: '900 €' },
+      { name: 'Magazin online', what: 'Până la 50 de produse, plată cu cardul și ramburs, facturare automată, integrare cu curierul', time: '4–6 săptămâni', price: 'de la 2.200 €' },
       { name: 'Aplicație simplă', what: 'Programări sau rezervări, conturi de client, panou de administrare', time: '4–6 săptămâni', price: 'de la 1.900 €' },
       { name: 'Aplicație completă', what: 'Plăți online, roluri de utilizator, integrări cu alte sisteme', time: 'după ofertă', price: 'de la 3.500 €' },
     ],
@@ -68,33 +69,8 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: 'magazine-online',
-    num: '02',
-    title: 'Magazine online',
-    short: 'Magazin cu plată cu cardul, facturare automată și curier.',
-    from: '2.200 €',
-    intro:
-      'Un magazin online simplu de administrat, în care clienții găsesc repede produsul, plătesc cu cardul și primesc coletul. Tu vezi comenzile într-un singur loc.',
-    bullets: [
-      'Până la 50 de produse încărcate de noi',
-      'Plată cu cardul și ramburs',
-      'Facturare automată',
-      'Integrare cu firma de curierat',
-      'Pagini de termeni, retur și GDPR',
-      'Instruire pentru administrare',
-    ],
-    rows: [
-      { name: 'Magazin online', what: 'Până la 50 de produse, plată cu cardul, facturare automată, curier', time: '4–6 săptămâni', price: 'de la 2.200 €' },
-    ],
-    note: 'Prețul final depinde de numărul de produse și de integrările de care ai nevoie. Îți trimitem oferta fixă în 24 de ore de la discuție.',
-    faq: [
-      { q: 'Ce procesator de plăți folosiți?', a: 'Lucrăm cu procesatorii folosiți în România, iar alegerea o facem împreună, după comisioane și după banca ta.' },
-      { q: 'Pot adăuga singur produse?', a: 'Da. Primești un panou de administrare și o instruire scurtă.' },
-    ],
-  },
-  {
     slug: 'ui-ux',
-    num: '03',
+    num: '02',
     title: 'Design UI/UX',
     short: 'Ecrane pentru aplicații și site-uri, gândite să fie ușor de folosit.',
     from: '500 €',
@@ -122,10 +98,10 @@ export const services: Service[] = [
   },
   {
     slug: 'abonament-design',
-    num: '04',
+    num: '03',
     title: 'Abonament de design',
     short: 'Cereri de design web și UI, livrate pe rând, pentru o sumă fixă pe lună.',
-    from: '290 €/lună',
+    from: '500 €/lună',
     intro:
       'Trimiți cereri de design (pagini noi, secțiuni, ecrane de aplicație, bannere pentru site) și le primești pe rând. Poți pune abonamentul pe pauză sau îl poți opri oricând, cu 7 zile înainte.',
     bullets: [
@@ -137,9 +113,9 @@ export const services: Service[] = [
       '10% reducere la plata pe un an',
     ],
     rows: [
-      { name: 'Web', what: 'Până la 8 cereri pe lună: secțiuni sau pagini noi pe site, bannere, mici redesign-uri', time: '2–3 zile lucrătoare per cerere', price: '290 €/lună' },
-      { name: 'Produs', what: 'Cereri nelimitate, una în lucru odată: ecrane de aplicație, pagini noi, îmbunătățiri UX', time: '2–3 zile lucrătoare per cerere', price: '690 €/lună' },
-      { name: 'Produs Plus', what: 'Tot din Produs, plus programarea paginilor și ecranelor livrate', time: '3–5 zile lucrătoare per cerere', price: '1.190 €/lună' },
+      { name: 'Web', what: 'Până la 8 cereri pe lună: secțiuni sau pagini noi pe site, bannere, mici redesign-uri', time: '2–3 zile lucrătoare per cerere', price: '500 €/lună' },
+      { name: 'Produs', what: 'Cereri nelimitate, una în lucru odată: ecrane de aplicație, pagini noi, îmbunătățiri UX', time: '2–3 zile lucrătoare per cerere', price: '900 €/lună' },
+      { name: 'Produs Plus', what: 'Tot din Produs, plus programarea paginilor și ecranelor livrate', time: '3–5 zile lucrătoare per cerere', price: '1.500 €/lună' },
     ],
     note: 'Cine plătește pe un an întreg primește 10% reducere.',
     faq: [
@@ -149,7 +125,7 @@ export const services: Service[] = [
   },
   {
     slug: 'logo-brand',
-    num: '05',
+    num: '04',
     title: 'Logo și ghid de brand',
     short: 'O identitate clară, gata de folosit pe site și în aplicație.',
     from: '300 €',

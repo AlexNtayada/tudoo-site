@@ -1,7 +1,7 @@
 ---
 import Base from '../layouts/Base.astro';
 import MiniSite from '../components/MiniSite.astro';
-import ServiceCards from '../components/ServiceCards.astro';
+import ServiceList from '../components/ServiceList.astro';
 import Cta from '../components/Cta.astro';
 import { company, minis, steps } from '../data/site';
 
@@ -35,7 +35,6 @@ const featured = [
         {reel.map((k, i) => <div class="shot"><MiniSite site={minis[k]} wide={i % 2 === 1} /></div>)}
       </div>
     </div>
-    <div class="in reel-hint"><span>Exemple de site-uri pentru firme mici</span><span>Trage →</span></div>
     <div class="drag-cursor" aria-hidden="true"><span>Trage</span></div>
   </section>
 
@@ -50,8 +49,8 @@ const featured = [
   </section>
 
   <section class="in sec" id="servicii">
-    <div class="sec-head"><h2>Tot ce-ți trebuie online.</h2><a class="link" href="/preturi">Toate prețurile</a></div>
-    <ServiceCards only={['site-uri', 'ui-ux', 'logo-brand']} />
+    <div class="sec-head"><h2>Tot ce-ți trebuie online.</h2><a class="link" href="/servicii">Toate serviciile</a></div>
+    <ServiceList />
   </section>
 
   <section class="in sec">

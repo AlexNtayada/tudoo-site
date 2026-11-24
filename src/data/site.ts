@@ -33,6 +33,7 @@ export type Service = {
   rows: PriceRow[];
   note?: string;
   faq: { q: string; a: string }[];
+  photo: { src: string; alt: string; by: string; link: string };
 };
 
 export const services: Service[] = [
@@ -40,7 +41,7 @@ export const services: Service[] = [
     slug: 'site-uri',
     num: '01',
     title: 'Site-uri și aplicații',
-    short: 'De la o pagină simplă la un site cu mai multe pagini sau o aplicație web.',
+    short: 'De la o pagină simplă la un site cu mai multe pagini, un magazin online sau o aplicație web.',
     from: '900 €',
     intro:
       'Facem site-uri care arată bine pe orice ecran, se încarcă repede și îi ajută pe clienți să te contacteze. Știi prețul și termenul înainte să începem.',
@@ -57,10 +58,12 @@ export const services: Service[] = [
       { name: 'Site de prezentare', what: 'Până la 5 pagini, blog simplu, 2 runde de modificări', time: '2–3 săptămâni', price: '1.300 €' },
       { name: 'Site extins', what: 'Până la 10 pagini, blog, a doua limbă opțională, 3 runde de modificări', time: '3–4 săptămâni', price: '1.800 €' },
       { name: 'Mini-aplicație', what: 'Un singur instrument: programări simple, calculator de ofertă, configurator sau formular avansat', time: '2–3 săptămâni', price: '900 €' },
+      { name: 'Magazin online', what: 'Până la 50 de produse, plată cu cardul și ramburs, facturare automată, integrare cu curierul', time: '4–6 săptămâni', price: 'de la 2.200 €' },
       { name: 'Aplicație simplă', what: 'Programări sau rezervări, conturi de client, panou de administrare', time: '4–6 săptămâni', price: 'de la 1.900 €' },
       { name: 'Aplicație completă', what: 'Plăți online, roluri de utilizator, integrări cu alte sisteme', time: 'după ofertă', price: 'de la 3.500 €' },
     ],
     note: 'Regula e simplă: 900 € pentru prima pagină și 100 € pentru fiecare pagină în plus. Peste 10 pagini, fiecare pagină nouă costă 100 €.',
+    photo: { src: 'https://images.unsplash.com/photo-1753164597612-5e71b83fda91?auto=format&fit=crop&w=1400&h=1000&q=75', alt: 'Proprietara unui atelier de croitorie lucrează la laptop și vorbește la telefon', by: 'Vitaly Gariev', link: 'https://unsplash.com/photos/kk4J92iaSBk' },
     faq: [
       { q: 'Al cui e site-ul după lansare?', a: 'Al tău. Domeniul, conținutul și codul îți aparțin, iar la cerere îți predăm toate accesele.' },
       { q: 'Pot modifica singur textele?', a: 'Da. Îți arătăm cum, iar dacă preferi, le facem noi la ora de lucru extra.' },
@@ -68,33 +71,8 @@ export const services: Service[] = [
     ],
   },
   {
-    slug: 'magazine-online',
-    num: '02',
-    title: 'Magazine online',
-    short: 'Magazin cu plată cu cardul, facturare automată și curier.',
-    from: '2.200 €',
-    intro:
-      'Un magazin online simplu de administrat, în care clienții găsesc repede produsul, plătesc cu cardul și primesc coletul. Tu vezi comenzile într-un singur loc.',
-    bullets: [
-      'Până la 50 de produse încărcate de noi',
-      'Plată cu cardul și ramburs',
-      'Facturare automată',
-      'Integrare cu firma de curierat',
-      'Pagini de termeni, retur și GDPR',
-      'Instruire pentru administrare',
-    ],
-    rows: [
-      { name: 'Magazin online', what: 'Până la 50 de produse, plată cu cardul, facturare automată, curier', time: '4–6 săptămâni', price: 'de la 2.200 €' },
-    ],
-    note: 'Prețul final depinde de numărul de produse și de integrările de care ai nevoie. Îți trimitem oferta fixă în 24 de ore de la discuție.',
-    faq: [
-      { q: 'Ce procesator de plăți folosiți?', a: 'Lucrăm cu procesatorii folosiți în România, iar alegerea o facem împreună, după comisioane și după banca ta.' },
-      { q: 'Pot adăuga singur produse?', a: 'Da. Primești un panou de administrare și o instruire scurtă.' },
-    ],
-  },
-  {
     slug: 'ui-ux',
-    num: '03',
+    num: '02',
     title: 'Design UI/UX',
     short: 'Ecrane pentru aplicații și site-uri, gândite să fie ușor de folosit.',
     from: '500 €',
@@ -115,6 +93,7 @@ export const services: Service[] = [
       { name: 'Design de aplicație', what: 'Până la 20 de ecrane web sau mobile, prototip clicabil, fișiere pregătite pentru programare', time: '3–4 săptămâni', price: 'de la 1.500 €' },
       { name: 'Design system', what: 'Componente, culori, tipografie și reguli în Figma, pentru un produs care crește', time: '2–3 săptămâni', price: 'de la 800 €' },
     ],
+    photo: { src: 'https://images.unsplash.com/photo-1761122827167-159d1d272313?auto=format&fit=crop&w=1400&h=1000&q=75', alt: 'Designer care desenează wireframe-uri pe tabletă, la birou', by: 'Mahmudul Hasan', link: 'https://unsplash.com/photos/Mo08jadTWYc' },
     faq: [
       { q: 'Primesc fișierele Figma?', a: 'Da, toate fișierele sunt ale tale la final.' },
       { q: 'Puteți și programa aplicația după design?', a: 'Da. Pachetul Produs digital combină designul cu o aplicație web simplă.' },
@@ -122,10 +101,10 @@ export const services: Service[] = [
   },
   {
     slug: 'abonament-design',
-    num: '04',
+    num: '03',
     title: 'Abonament de design',
     short: 'Cereri de design web și UI, livrate pe rând, pentru o sumă fixă pe lună.',
-    from: '290 €/lună',
+    from: '500 €/lună',
     intro:
       'Trimiți cereri de design (pagini noi, secțiuni, ecrane de aplicație, bannere pentru site) și le primești pe rând. Poți pune abonamentul pe pauză sau îl poți opri oricând, cu 7 zile înainte.',
     bullets: [
@@ -137,11 +116,12 @@ export const services: Service[] = [
       '10% reducere la plata pe un an',
     ],
     rows: [
-      { name: 'Web', what: 'Până la 8 cereri pe lună: secțiuni sau pagini noi pe site, bannere, mici redesign-uri', time: '2–3 zile lucrătoare per cerere', price: '290 €/lună' },
-      { name: 'Produs', what: 'Cereri nelimitate, una în lucru odată: ecrane de aplicație, pagini noi, îmbunătățiri UX', time: '2–3 zile lucrătoare per cerere', price: '690 €/lună' },
-      { name: 'Produs Plus', what: 'Tot din Produs, plus programarea paginilor și ecranelor livrate', time: '3–5 zile lucrătoare per cerere', price: '1.190 €/lună' },
+      { name: 'Web', what: 'Până la 8 cereri pe lună: secțiuni sau pagini noi pe site, bannere, mici redesign-uri', time: '2–3 zile lucrătoare per cerere', price: '500 €/lună' },
+      { name: 'Produs', what: 'Cereri nelimitate, una în lucru odată: ecrane de aplicație, pagini noi, îmbunătățiri UX', time: '2–3 zile lucrătoare per cerere', price: '900 €/lună' },
+      { name: 'Produs Plus', what: 'Tot din Produs, plus programarea paginilor și ecranelor livrate', time: '3–5 zile lucrătoare per cerere', price: '1.500 €/lună' },
     ],
     note: 'Cine plătește pe un an întreg primește 10% reducere.',
+    photo: { src: 'https://images.unsplash.com/photo-1726996278602-d02bedd6dd2c?auto=format&fit=crop&w=1400&h=1000&q=75', alt: 'Designer care ține o tabletă grafică în fața monitorului', by: 'Jakub Żerdzicki', link: 'https://unsplash.com/photos/M47v14huqDA' },
     faq: [
       { q: 'Ce înseamnă „una în lucru odată”?', a: 'Lucrăm la o singură cerere până o livrăm, apoi trecem la următoarea din listă. Lista ta poate fi oricât de lungă.' },
       { q: 'Pot opri abonamentul?', a: 'Da, oricând, cu 7 zile înainte de următoarea plată.' },
@@ -149,7 +129,7 @@ export const services: Service[] = [
   },
   {
     slug: 'logo-brand',
-    num: '05',
+    num: '04',
     title: 'Logo și ghid de brand',
     short: 'O identitate clară, gata de folosit pe site și în aplicație.',
     from: '300 €',
@@ -167,6 +147,7 @@ export const services: Service[] = [
       { name: 'Logo', what: '3 propuneri, 2 runde de modificări, fișiere SVG, PNG și PDF', time: '5–7 zile', price: '300 €' },
       { name: 'Logo + ghid de brand', what: 'Logo, culori, fonturi, reguli de folosire, ghid de brand în PDF', time: '7–10 zile', price: '600 €' },
     ],
+    photo: { src: 'https://images.unsplash.com/photo-1611241893603-3c359704e0ee?auto=format&fit=crop&w=1400&h=1000&q=75', alt: 'Mână care desenează pe o tabletă cu un creion digital', by: 'Kelly Sikkema', link: 'https://unsplash.com/photos/Dx1b5ucschA' },
     faq: [
       { q: 'Faceți și cărți de vizită sau flyere?', a: 'Nu. Ne ocupăm de logo și de ghidul de brand, pe care le poți folosi apoi la orice tipografie.' },
     ],

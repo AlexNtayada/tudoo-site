@@ -152,7 +152,7 @@ export const services: Service[] = [
     num: '05',
     title: 'Logo și ghid de brand',
     short: 'O identitate clară, gata de folosit pe site și în aplicație.',
-    from: '250 €',
+    from: '300 €',
     intro:
       'Pornim de la ce face firma ta și de la clienții tăi. Primești 3 propuneri de logo, alegi una, o rafinăm împreună și îți livrăm fișierele pentru orice folosire.',
     bullets: [
@@ -164,8 +164,8 @@ export const services: Service[] = [
       'Fișiere SVG, PNG și PDF',
     ],
     rows: [
-      { name: 'Logo', what: '3 propuneri, 2 runde de modificări, fișiere SVG, PNG și PDF', time: '5–7 zile', price: '250 €' },
-      { name: 'Logo + ghid de brand', what: 'Logo, culori, fonturi, reguli de folosire, ghid de brand în PDF', time: '7–10 zile', price: '450 €' },
+      { name: 'Logo', what: '3 propuneri, 2 runde de modificări, fișiere SVG, PNG și PDF', time: '5–7 zile', price: '300 €' },
+      { name: 'Logo + ghid de brand', what: 'Logo, culori, fonturi, reguli de folosire, ghid de brand în PDF', time: '7–10 zile', price: '600 €' },
     ],
     faq: [
       { q: 'Faceți și cărți de vizită sau flyere?', a: 'Nu. Ne ocupăm de logo și de ghidul de brand, pe care le poți folosi apoi la orice tipografie.' },
@@ -179,8 +179,8 @@ export const extras: PriceRow[] = [
 ];
 
 export const bundles = [
-  { name: 'Lansare rapidă', what: 'Logo + landing page', was: '1.150 €', price: '990 €' },
-  { name: 'Firmă nouă', what: 'Logo + ghid de brand, site de prezentare', was: '1.750 €', price: '1.590 €' },
+  { name: 'Lansare rapidă', what: 'Logo + landing page', was: '1.200 €', price: '1.090 €' },
+  { name: 'Firmă nouă', what: 'Logo + ghid de brand, site de prezentare', was: '1.900 €', price: '1.690 €' },
   { name: 'Produs digital', what: 'Design de aplicație + aplicație simplă', was: '3.400 €', price: '2.990 €' },
 ];
 

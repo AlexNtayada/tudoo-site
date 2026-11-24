@@ -82,7 +82,7 @@ html.lenis, html.lenis body { height: auto }
 .ms-ok svg { width: 4.6cqw; height: 4.6cqw }
 
 /* hero mozaic */
-.mosaic { position: relative; overflow: hidden; background: var(--soft); min-height: clamp(620px, 88vh, 860px); display: flex; align-items: center; justify-content: center; padding-block: 96px }
+.mosaic { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--soft) 0%, var(--soft) 72%, var(--bg) 100%); min-height: clamp(620px, 88vh, 860px); display: flex; align-items: center; justify-content: center; padding-block: 96px }
 .mosaic-c { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; max-width: min(760px, 54vw) }
 .mosaic h1 { font-size: clamp(42px, 6.2vw, 96px); font-weight: 600 }
 .mosaic .btn.ghost { background: #fff }
@@ -106,7 +106,8 @@ html.lenis, html.lenis body { height: auto }
 }
 
 /* carusel */
-.reel { overflow-x: auto; scrollbar-width: none; cursor: grab; padding-block: 40px 24px }
+/* spațiu generos sus și jos, ca umbrele cardurilor să nu fie tăiate de containerul care derulează */
+.reel { overflow-x: auto; overflow-y: hidden; scrollbar-width: none; cursor: grab; padding-block: 56px 110px; margin-block: -16px -70px }
 .reel::-webkit-scrollbar { display: none }
 .reel.drag { cursor: grabbing }
 @media (hover: hover) and (pointer: fine) { .reel, .reel * { cursor: none !important } }

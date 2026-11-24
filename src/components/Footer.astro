@@ -1,0 +1,42 @@
+---
+import { company, services } from '../data/site';
+const year = new Date().getFullYear();
+---
+<footer class="in site-footer">
+  <div class="brand">
+    <a class="logo" href="/">Tudoo</a>
+    <p style="color:var(--muted);margin-top:10px;max-width:30ch">Site-uri, aplicații și design UI/UX pentru firme mici, la preț fix.</p>
+  </div>
+  <div>
+    <h4>Servicii</h4>
+    <ul>{services.map((s) => <li><a href={`/servicii/${s.slug}`}>{s.title}</a></li>)}</ul>
+  </div>
+  <div>
+    <h4>Tudoo</h4>
+    <ul>
+      <li><a href="/portofoliu">Portofoliu</a></li>
+      <li><a href="/preturi">Prețuri</a></li>
+      <li><a href="/cum-lucram">Cum lucrăm</a></li>
+      <li><a href="/despre">Despre noi</a></li>
+      <li><a href="/intrebari-frecvente">Întrebări frecvente</a></li>
+    </ul>
+  </div>
+  <div>
+    <h4>Contact</h4>
+    <ul>
+      <li><a href={`mailto:${company.email}`}>{company.email}</a></li>
+      {company.phone && <li><a href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a></li>}
+      <li><a href="/cere-oferta">Cere ofertă</a></li>
+      <li><a href="/contact">Contact</a></li>
+    </ul>
+  </div>
+  <div class="legal">
+    <span>© {year} {company.legalName} · CUI {company.cui}</span>
+    <nav aria-label="Pagini legale">
+      <a href="/termeni">Termeni</a>
+      <a href="/confidentialitate">Confidențialitate</a>
+      <a href="/cookies">Cookies</a>
+      <a href="https://anpc.ro/ce-este-sal/" rel="noopener" target="_blank">ANPC · SAL</a>
+    </nav>
+  </div>
+</footer>

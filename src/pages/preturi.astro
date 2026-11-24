@@ -1,0 +1,42 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import PriceTable from '../components/PriceTable.astro';
+import Faq from '../components/Faq.astro';
+import Cta from '../components/Cta.astro';
+import { services, extras, bundles, payment } from '../data/site';
+const bundleRows = bundles.map((b) => ({ name: b.name, what: b.what, price: b.price, was: b.was }));
+---
+<Base title="Prețuri" description="Toate prețurile Tudoo: site-uri și aplicații de la 900 €, design UI/UX de la 500 €, logo de la 300 €.">
+  <PageHead title="Prețuri fixe, <em>știute de la început.</em>" lead="Toate prețurile sunt în euro, fără TVA. Plata se face în lei, la cursul BNR din ziua facturării: 50% avans, 50% la lansare." crumbs={[{ href: '/preturi', label: 'Prețuri' }]} />
+
+  {services.map((s) => (
+    <section class="in sec" id={s.slug} style="padding-block:24px 56px">
+      <div class="sec-head"><h2>{s.title}</h2><a class="link" href={`/servicii/${s.slug}`}>Detalii</a></div>
+      <PriceTable rows={s.rows} first={s.slug === 'abonament-design' ? 'Plan' : s.slug === 'site-uri' ? 'Pachet' : 'Serviciu'} />
+      {s.note && <p class="note-line">{s.note}</p>}
+    </section>
+  ))}
+
+  <section class="in sec" style="padding-block:24px 56px">
+    <div class="sec-head"><h2>Pachete combinate.</h2><p>Mai multe servicii împreună, la un preț mai mic decât separat.</p></div>
+    <div class="table-wrap">
+      <table class="prices">
+        <thead><tr><th scope="col">Pachet</th><th scope="col">Ce conține</th><th scope="col">Separat</th><th scope="col">Preț pachet</th></tr></thead>
+        <tbody>{bundleRows.map((b) => <tr><td>{b.name}</td><td>{b.what}</td><td class="t"><s>{b.was}</s></td><td class="p">{b.price}</td></tr>)}</tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="in sec" style="padding-block:24px 56px">
+    <div class="sec-head"><h2>Extra.</h2></div>
+    <PriceTable rows={extras} first="Serviciu" />
+  </section>
+
+  <section class="in sec split">
+    <div class="sec-head" style="margin:0"><h2>Despre plată.</h2></div>
+    <Faq items={payment} />
+  </section>
+
+  <Cta title="Nu știi ce pachet ți se potrivește?" text="Spune-ne ce ai nevoie și îți trimitem în 24 de ore o ofertă fixă, cu preț și termen." />
+</Base>

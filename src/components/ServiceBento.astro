@@ -1,0 +1,29 @@
+---
+import { services, minis } from '../data/site';
+import MiniSite from './MiniSite.astro';
+const by = Object.fromEntries(services.map((s) => [s.slug, s]));
+const site = by['site-uri'], ux = by['ui-ux'], sub = by['abonament-design'], logo = by['logo-brand'];
+---
+<div class="bento" data-stagger>
+  <a class="b1" href={`/servicii/${site.slug}`}>
+    <div class="bt"><h2>{site.title}</h2><p>{site.short}</p></div>
+    <span class="more">Află mai mult →</span>
+    <div class="bm bm1" aria-hidden="true"><MiniSite site={minis[0]} /></div>
+    <div class="bm bm2" aria-hidden="true"><MiniSite site={minis[1]} /></div>
+  </a>
+  <a class="b2" href={`/servicii/${ux.slug}`}>
+    <div class="bt"><h2>{ux.title}</h2><p>{ux.short}</p></div>
+    <span class="more">Află mai mult →</span>
+    <span class="phone" aria-hidden="true"></span>
+  </a>
+  <a class="b3" href={`/servicii/${sub.slug}`}>
+    <div class="bt"><h2>{sub.title}</h2><p>{sub.short}</p></div>
+    <span class="more">Află mai mult →</span>
+    <span class="chip">{sub.rows.length} planuri</span>
+  </a>
+  <a class="b4" href={`/servicii/${logo.slug}`}>
+    <div class="bt"><h2>{logo.title}</h2><p>{logo.short}</p></div>
+    <span class="more">Află mai mult →</span>
+    <span class="mark" aria-hidden="true"></span>
+  </a>
+</div>

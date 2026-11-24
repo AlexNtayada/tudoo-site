@@ -1,0 +1,27 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import Cta from '../components/Cta.astro';
+const values = [
+  { t: 'Preț fix', d: 'Știi suma totală înainte să începem. Orice extra are prețul lui, stabilit dinainte.' },
+  { t: 'Lucruri terminate', d: 'Nu vindem ore. Vindem un site, o aplicație sau un logo, gata de folosit.' },
+  { t: 'Vorbim simplu', d: 'Fără termeni tehnici inutili. Îți explicăm ce facem și de ce.' },
+  { t: 'Rămânem aproape', d: '30 de zile de suport gratuit după lansare, apoi modificări la cerere.' },
+];
+---
+<Base title="Despre noi" description="Tudoo face site-uri, aplicații și design pentru firme mici, la preț fix, fără prețuri de agenție.">
+  <PageHead title="Site-uri bune, <em>fără prețuri de agenție.</em>" lead="Am pornit Tudoo pentru firmele mici care au nevoie de un site bun, dar nu de un proiect de agenție care durează luni și costă cât o mașină." crumbs={[{ href: '/despre', label: 'Despre noi' }]} />
+  <section class="in sec">
+    <div class="sec-head"><h2>Ce ne ghidează.</h2></div>
+    <ol class="steps" data-stagger>{values.map((v) => <li><b>{v.t}</b><span>{v.d}</span></li>)}</ol>
+  </section>
+  <section class="in manifesto">
+    <span class="lab">De ce prețuri mici</span>
+    <div class="txt">
+      <p>Folosim unelte moderne și un proces bine pus la punct, așa că terminăm mai repede.</p>
+      <p class="m">Economia de timp se vede în preț. Tu plătești pentru rezultat, nu pentru ședințe.</p>
+      <span class="sig">Echipa Tudoo</span>
+    </div>
+  </section>
+  <Cta />
+</Base>

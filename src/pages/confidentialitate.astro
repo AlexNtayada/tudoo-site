@@ -1,0 +1,21 @@
+---
+import Legal from '../components/Legal.astro';
+import { company } from '../data/site';
+---
+<Legal title="Politica de confidențialitate" slug="confidentialitate" updated="24 noiembrie 2026" description="Cum folosește Tudoo datele personale trimise prin formularele de pe tudoo.ro.">
+  <h2>Cine prelucrează datele</h2>
+  <p>Operatorul datelor este {company.legalName}, CUI {company.cui}, cu sediul în {company.address}. Pentru orice întrebare despre datele tale, scrie-ne la <a href={`mailto:${company.email}`}>{company.email}</a>.</p>
+  <h2>Ce date colectăm</h2>
+  <p>Doar ce ne trimiți prin formularele de ofertă și de contact: nume, email, telefon (opțional), firmă (opțional) și detaliile proiectului. Nu folosim cookie-uri de urmărire și nu facem profiluri de marketing.</p>
+  <h2>De ce le folosim</h2>
+  <ul>
+    <li>ca să îți răspundem și să îți trimitem oferta cerută (art. 6 alin. 1 lit. b din GDPR, demersuri înainte de încheierea unui contract);</li>
+    <li>pe baza acordului tău, pe care îl dai bifând căsuța din formular (art. 6 alin. 1 lit. a).</li>
+  </ul>
+  <h2>Cât timp le păstrăm</h2>
+  <p>Cel mult 12 luni de la ultimul mesaj, dacă nu devii client. Dacă semnăm un contract, datele se păstrează cât cere legislația fiscală.</p>
+  <h2>Cine mai are acces</h2>
+  <p>Furnizorul serviciului de formulare [de completat] și furnizorul de găzduire a site-ului [de completat], doar cât e necesar ca să funcționeze serviciul. Nu vindem și nu închiriem datele nimănui.</p>
+  <h2>Drepturile tale</h2>
+  <p>Ai dreptul să ceri acces la date, corectarea sau ștergerea lor, restricționarea prelucrării, portabilitatea și să îți retragi acordul oricând, scriindu-ne la adresa de mai sus. Poți depune și o plângere la Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal (<a href="https://www.dataprotection.ro" rel="noopener" target="_blank">dataprotection.ro</a>).</p>
+</Legal>

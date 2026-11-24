@@ -1,0 +1,16 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+const after = ['Îți răspundem în cel mult o zi lucrătoare', 'Stabilim o discuție gratuită de 20 de minute', 'Primești oferta fixă în 24 de ore de la discuție'];
+---
+<Base title="Cere ofertă" description="Spune-ne ce ai nevoie și primești în 24 de ore o ofertă fixă, cu preț și termen.">
+  <PageHead title="Spune-ne ce ai <em>pe listă.</em>" lead="Completează formularul în două minute. Îți trimitem o ofertă fixă, cu preț și termen, fără obligații." crumbs={[{ href: '/cere-oferta', label: 'Cere ofertă' }]} />
+  <section class="in sec split">
+    <div style="display:flex;flex-direction:column;gap:20px">
+      <h2 style="font-size:clamp(28px,3vw,40px);font-weight:600">Ce urmează</h2>
+      <ul class="checks" style="font-size:17px;gap:14px">{after.map((a) => <li>{a}</li>)}</ul>
+    </div>
+    <QuoteForm />
+  </section>
+</Base>

@@ -1,0 +1,15 @@
+---
+interface Props { title: string; lead?: string; crumbs?: { href: string; label: string }[] }
+const { title, lead, crumbs = [] } = Astro.props;
+---
+<section class="in page-head">
+  {crumbs.length > 0 && (
+    <nav class="crumbs" aria-label="Unde ești">
+      <a href="/">Acasă</a>
+      {crumbs.map((c) => (<><span aria-hidden="true">/</span><a href={c.href}>{c.label}</a></>))}
+    </nav>
+  )}
+  <h1 data-split set:html={title} />
+  {lead && <p class="lead" data-reveal>{lead}</p>}
+  <slot />
+</section>

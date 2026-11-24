@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHead from '../components/PageHead.astro';
+import QuoteForm from '../components/QuoteForm.astro';
+import { company } from '../data/site';
+const wa = company.phone ? `https://wa.me/${company.phone.replace(/[^0-9]/g, '')}` : '';
+---
+<Base title="Contact" description="Scrie-ne la salut@tudoo.ro sau completează formularul. Răspundem în cel mult o zi lucrătoare.">
+  <PageHead title="Hai să <em>vorbim.</em>" lead="Răspundem în cel mult o zi lucrătoare, de luni până vineri." crumbs={[{ href: '/contact', label: 'Contact' }]} />
+  <section class="in sec split">
+    <div class="contact-list">
+      <div><b>Email</b><a class="big" href={`mailto:${company.email}`}>{company.email}</a></div>
+      {company.phone && <div><b>Telefon</b><a class="big" href={`tel:${company.phone.replace(/\s/g, '')}`}>{company.phone}</a></div>}
+      {wa && <div><b>WhatsApp</b><a class="big" href={wa} target="_blank" rel="noopener">Scrie-ne pe WhatsApp</a></div>}
+      <div><b>Program</b><span>Luni–vineri, 9:00–18:00</span></div>
+      <div><b>Proiect nou?</b><a class="link" href="/cere-oferta">Cere o ofertă detaliată</a></div>
+    </div>
+    <QuoteForm short />
+  </section>
+</Base>

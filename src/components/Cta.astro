@@ -1,0 +1,15 @@
+---
+interface Props { title?: string; text?: string }
+const {
+  title = 'Ai un proiect în minte?',
+  text = 'Programează o discuție gratuită de 20 de minute. Îți spunem ce ai nevoie, cât costă și în cât timp e gata.',
+} = Astro.props;
+---
+<div class="in">
+  <section class="cta">
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <a class="btn" href="/cere-oferta">Programează discuția gratuită</a>
+    <div class="ring" aria-hidden="true"><svg viewBox="0 0 80 80"><path d="M18 42 l13 13 l29 -34" fill="none" stroke="#FFD84D" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  </section>
+</div>

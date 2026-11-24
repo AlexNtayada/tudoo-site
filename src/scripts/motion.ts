@@ -87,7 +87,8 @@ export function initMotion() {
   };
   fromClean('.site-header .nav > *', { y: -12, opacity: 0, duration: 1, stagger: .08, ease: EASE, delay: .1 });
   document.querySelectorAll<HTMLElement>('[data-split]').forEach((h) => {
-    gsap.from(splitWords(h), { yPercent: 115, rotate: 4, duration: 1.5, stagger: .055, ease: EASE, delay: .15 });
+    const ws = splitWords(h);
+    gsap.from(ws, { yPercent: 115, rotate: 4, duration: 1.5, stagger: .055, ease: EASE, delay: .15, onComplete: () => ws.forEach((w) => w.parentElement?.classList.add('done')) });
   });
   gsap.from('.page-head [data-reveal], .mosaic .status, .mosaic .lead, .mosaic .ctas', { y: 24, opacity: 0, duration: 1.2, stagger: .08, ease: EASE, delay: .5 });
 

@@ -13,7 +13,7 @@ body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--f
 a { color: inherit; text-decoration: none }
 img, svg { max-width: 100% }
 [hidden] { display: none !important }
-h1, h2, h3, h4 { font-family: var(--f-head); margin: 0; letter-spacing: -.035em; text-wrap: balance; line-height: 1.02 }
+h1, h2, h3, h4 { font-family: var(--f-head); margin: 0; letter-spacing: -.035em; text-wrap: balance; line-height: 1.08 }
 p { margin: 0 }
 .in { max-width: 1240px; margin: 0 auto; padding-left: max(20px, env(safe-area-inset-left, 0px)); padding-right: max(20px, env(safe-area-inset-right, 0px)) }
 .skip { position: absolute; left: 12px; top: -60px; z-index: 50; background: var(--ink); color: #fff; padding: 10px 14px; border-radius: 10px }
@@ -59,7 +59,8 @@ body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-a
 }
 
 /* animație cuvinte */
-.w { display: inline-block; overflow: hidden; vertical-align: bottom; padding-bottom: .1em; margin-bottom: -.1em }
+.w { display: inline-block; overflow: hidden; vertical-align: bottom; padding: .12em .04em .28em; margin: -.12em -.04em -.28em }
+.w.done { overflow: visible }
 .w > span { display: inline-block; will-change: transform }
 html.lenis, html.lenis body { height: auto }
 .lenis.lenis-smooth { scroll-behavior: auto !important }
@@ -85,7 +86,7 @@ html.lenis, html.lenis body { height: auto }
 /* hero mozaic */
 .mosaic { position: relative; overflow: hidden; background: linear-gradient(180deg, var(--soft) 0%, var(--soft) 72%, var(--bg) 100%); min-height: clamp(620px, 88vh, 860px); display: flex; align-items: center; justify-content: center; padding-block: 96px }
 .mosaic-c { position: relative; z-index: 3; display: flex; flex-direction: column; align-items: center; text-align: center; gap: 24px; max-width: min(760px, 54vw) }
-.mosaic h1 { font-size: clamp(42px, 6.2vw, 96px); font-weight: 600 }
+.mosaic h1 { font-size: clamp(42px, 6.2vw, 96px); font-weight: 600; line-height: 1.1 }
 .mosaic .btn.ghost { background: #fff }
 .mosaic .lead { margin: 0 auto }
 .mosaic .ctas { justify-content: center }
@@ -189,7 +190,7 @@ a.card:hover { transform: translateY(-6px) }
 
 /* antet de pagină */
 .page-head { padding-block: 72px 48px; display: flex; flex-direction: column; gap: 22px }
-.page-head h1 { font-size: clamp(44px, 7vw, 104px); font-weight: 600; max-width: 15ch }
+.page-head h1 { font-size: clamp(44px, 7vw, 104px); font-weight: 600; max-width: 15ch; line-height: 1.1 }
 .crumbs { font-size: 13px; color: var(--muted); display: flex; gap: 8px; flex-wrap: wrap }
 .crumbs a:hover { color: var(--ink) }
 

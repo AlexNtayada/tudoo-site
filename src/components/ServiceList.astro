@@ -1,0 +1,32 @@
+---
+import { services, minis } from '../data/site';
+import MiniSite from './MiniSite.astro';
+const pick = [4, 6, 1, 0]; // ce mini-site apare la hover pentru fiecare serviciu
+---
+<div class="slist" id="slist">
+  {services.map((s, i) => (
+    <a href={`/servicii/${s.slug}`} data-i={i}>
+      <span class="n">{s.num}</span>
+      <span class="t">{s.title}</span>
+      <span class="s">{s.short}</span>
+    </a>
+  ))}
+  <div class="slist-float" aria-hidden="true">
+    {services.map((_, i) => <div class="sf" data-i={i}><MiniSite site={minis[pick[i % pick.length]]} /></div>)}
+  </div>
+</div>
+<script>
+  const list = document.getElementById('slist');
+  if (list && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    const fl = list.querySelector<HTMLElement>('.slist-float')!;
+    const cards = [...fl.querySelectorAll<HTMLElement>('.sf')];
+    let x = 0, y = 0, cx = 0, cy = 0, raf = 0;
+    const tick = () => { cx += (x - cx) * .14; cy += (y - cy) * .14; fl.style.transform = `translate(${cx}px, ${cy}px)`; raf = requestAnimationFrame(tick); };
+    list.querySelectorAll<HTMLElement>('a').forEach((a) => {
+      a.addEventListener('mouseenter', () => { cards.forEach((c) => c.classList.toggle('on', c.dataset.i === a.dataset.i)); fl.classList.add('on'); });
+    });
+    list.addEventListener('mouseenter', (e) => { const r = list.getBoundingClientRect(); x = cx = e.clientX - r.left; y = cy = e.clientY - r.top; if (!raf) raf = requestAnimationFrame(tick); });
+    list.addEventListener('mousemove', (e) => { const r = list.getBoundingClientRect(); x = e.clientX - r.left; y = e.clientY - r.top; });
+    list.addEventListener('mouseleave', () => { fl.classList.remove('on'); cancelAnimationFrame(raf); raf = 0; });
+  }
+</script>

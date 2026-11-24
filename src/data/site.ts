@@ -33,7 +33,6 @@ export type Service = {
   rows: PriceRow[];
   note?: string;
   faq: { q: string; a: string }[];
-  photo: { src: string; alt: string; by: string; link: string };
 };
 
 export const services: Service[] = [
@@ -63,7 +62,6 @@ export const services: Service[] = [
       { name: 'Aplicație completă', what: 'Plăți online, roluri de utilizator, integrări cu alte sisteme', time: 'după ofertă', price: 'de la 3.500 €' },
     ],
     note: 'Regula e simplă: 900 € pentru prima pagină și 100 € pentru fiecare pagină în plus. Peste 10 pagini, fiecare pagină nouă costă 100 €.',
-    photo: { src: 'https://images.unsplash.com/photo-1753164597612-5e71b83fda91?auto=format&fit=crop&w=1400&h=1000&q=75', alt: 'Proprietara unui atelier de croitorie lucrează la laptop și vorbește la telefon', by: 'Vitaly Gariev', link: 'https://unsplash.com/photos/kk4J92iaSBk' },
     faq: [
       { q: 'Al cui e site-ul după lansare?', a: 'Al tău. Domeniul, conținutul și codul îți aparțin, iar la cerere îți predăm toate accesele.' },
       { q: 'Pot modifica singur textele?', a: 'Da. Îți arătăm cum, iar dacă preferi, le facem noi la ora de lucru extra.' },
@@ -93,7 +91,6 @@ export const services: Service[] = [
       { name: 'Design de aplicație', what: 'Până la 20 de ecrane web sau mobile, prototip clicabil, fișiere pregătite pentru programare', time: '3–4 săptămâni', price: 'de la 1.500 €' },
       { name: 'Design system', what: 'Componente, culori, tipografie și reguli în Figma, pentru un produs care crește', time: '2–3 săptămâni', price: 'de la 800 €' },
     ],
-    photo: { src: 'https://images.unsplash.com/photo-1761122827167-159d1d272313?auto=format&fit=crop&w=1400&h=1000&q=75', alt: 'Designer care desenează wireframe-uri pe tabletă, la birou', by: 'Mahmudul Hasan', link: 'https://unsplash.com/photos/Mo08jadTWYc' },
     faq: [
       { q: 'Primesc fișierele Figma?', a: 'Da, toate fișierele sunt ale tale la final.' },
       { q: 'Puteți și programa aplicația după design?', a: 'Da. Pachetul Produs digital combină designul cu o aplicație web simplă.' },
@@ -121,7 +118,6 @@ export const services: Service[] = [
       { name: 'Produs Plus', what: 'Tot din Produs, plus programarea paginilor și ecranelor livrate', time: '3–5 zile lucrătoare per cerere', price: '1.500 €/lună' },
     ],
     note: 'Cine plătește pe un an întreg primește 10% reducere.',
-    photo: { src: 'https://images.unsplash.com/photo-1726996278602-d02bedd6dd2c?auto=format&fit=crop&w=1400&h=1000&q=75', alt: 'Designer care ține o tabletă grafică în fața monitorului', by: 'Jakub Żerdzicki', link: 'https://unsplash.com/photos/M47v14huqDA' },
     faq: [
       { q: 'Ce înseamnă „una în lucru odată”?', a: 'Lucrăm la o singură cerere până o livrăm, apoi trecem la următoarea din listă. Lista ta poate fi oricât de lungă.' },
       { q: 'Pot opri abonamentul?', a: 'Da, oricând, cu 7 zile înainte de următoarea plată.' },
@@ -147,7 +143,6 @@ export const services: Service[] = [
       { name: 'Logo', what: '3 propuneri, 2 runde de modificări, fișiere SVG, PNG și PDF', time: '5–7 zile', price: '300 €' },
       { name: 'Logo + ghid de brand', what: 'Logo, culori, fonturi, reguli de folosire, ghid de brand în PDF', time: '7–10 zile', price: '600 €' },
     ],
-    photo: { src: 'https://images.unsplash.com/photo-1611241893603-3c359704e0ee?auto=format&fit=crop&w=1400&h=1000&q=75', alt: 'Mână care desenează pe o tabletă cu un creion digital', by: 'Kelly Sikkema', link: 'https://unsplash.com/photos/Dx1b5ucschA' },
     faq: [
       { q: 'Faceți și cărți de vizită sau flyere?', a: 'Nu. Ne ocupăm de logo și de ghidul de brand, pe care le poți folosi apoi la orice tipografie.' },
     ],

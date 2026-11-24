@@ -44,12 +44,21 @@ export function initMotion() {
   const header = document.querySelector<HTMLElement>('.site-header');
 
   // meniul se ascunde la scroll în jos și reapare la scroll în sus
-  let last = 0;
+  // ascunde la scroll în jos, arată la scroll în sus; schimbă starea doar după 16px în aceeași direcție,
+  // ca micile mișcări ale scroll-ului lin să nu-l facă să tremure
+  let anchor = 0, hidden = false;
+  const setHidden = (h: boolean) => { if (h !== hidden) { hidden = h; header?.classList.toggle('hide', h); } };
   window.addEventListener('scroll', () => {
+    if (!header || reduce) return;
     const y = window.scrollY;
-    const menuOpen = !document.getElementById('mobile-menu')?.hidden;
-    if (header && !reduce && !menuOpen) header.classList.toggle('hide', y > last + 2 && y > 200);
-    if (Math.abs(y - last) > 2) last = y;
+    if (!document.getElementById('mobile-menu')?.hidden || y < 120) { setHidden(false); anchor = y; return; }
+    if (hidden) {
+      if (y > anchor) anchor = y;
+      else if (anchor - y > 16) { setHidden(false); anchor = y; }
+    } else {
+      if (y < anchor) anchor = y;
+      else if (y - anchor > 16) { setHidden(true); anchor = y; }
+    }
   }, { passive: true });
 
   if (reduce) return;
@@ -71,7 +80,12 @@ export function initMotion() {
   lenis.on('scroll', (l: Lenis) => { velocity = l.velocity || 0; });
 
   // intrarea în pagină: meniul, apoi titlul cuvânt cu cuvânt
-  gsap.from('.site-header .nav > *', { y: -12, opacity: 0, duration: 1, stagger: .08, ease: EASE, delay: .1 });
+  // elementele care au și tranziție CSS pe transform o opresc cât timp le animă GSAP, altfel cele două se bat și tremură
+  const fromClean = (targets: gsap.TweenTarget, vars: gsap.TweenVars) => {
+    gsap.set(targets, { transition: 'none' });
+    return gsap.from(targets, { ...vars, clearProps: 'transform,opacity,transition' });
+  };
+  fromClean('.site-header .nav > *', { y: -12, opacity: 0, duration: 1, stagger: .08, ease: EASE, delay: .1 });
   document.querySelectorAll<HTMLElement>('[data-split]').forEach((h) => {
     gsap.from(splitWords(h), { yPercent: 115, rotate: 4, duration: 1.5, stagger: .055, ease: EASE, delay: .15 });
   });
@@ -82,7 +96,7 @@ export function initMotion() {
     gsap.from(el, { y: 60, opacity: 0, duration: 1.4, ease: EASE, scrollTrigger: { trigger: el, start: 'top 90%' } });
   });
   gsap.utils.toArray<HTMLElement>('[data-stagger]').forEach((g) => {
-    gsap.from(g.children, { y: 80, opacity: 0, duration: 1.4, ease: EASE, stagger: .1, scrollTrigger: { trigger: g, start: 'top 88%' } });
+    fromClean(g.children, { y: 80, opacity: 0, duration: 1.4, ease: EASE, stagger: .1, scrollTrigger: { trigger: g, start: 'top 88%' } });
   });
 
   // hero mozaic: plăcuțele intră, apoi se mișcă după mouse și la scroll, fiecare cu adâncimea ei

@@ -174,7 +174,7 @@ export const payment = [
   { q: 'Prețurile includ TVA?', a: 'Prețurile sunt în euro, fără TVA. Plata se face în lei, la cursul BNR din ziua facturării.' },
   { q: 'Cum se face plata?', a: '50% avans la semnare și 50% la lansare. Abonamentele se plătesc lunar, în avans.' },
   { q: 'Ce e inclus în orice site?', a: 'Design adaptat pe telefon, formular de contact, certificat SSL, structură pregătită pentru Google (titluri, descrieri, sitemap, viteză) și găzduire gratuită în primul an.' },
-  { q: 'Ce trebuie să aduc eu?', a: 'Domeniul, logo-ul dacă ai, textele și pozele. Dacă nu le ai, le facem noi contra cost.' },
+  { q: 'Ce trebuie să aduc eu?', a: 'Domeniul (aproximativ 10 € pe an pentru .ro), logo-ul dacă ai, textele și pozele. Dacă nu le ai, le facem noi contra cost.' },
 ];
 
 export const faqs = [

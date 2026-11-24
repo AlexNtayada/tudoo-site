@@ -1,15 +1,15 @@
 ---
 import type { PriceRow } from '../data/site';
-interface Props { rows: PriceRow[]; first?: string; prices?: boolean }
-const { rows, first = 'Pachet', prices = true } = Astro.props;
+interface Props { rows: PriceRow[]; first?: string }
+const { rows, first = 'Pachet' } = Astro.props;
 const hasTime = rows.some((r) => r.time);
 ---
 <div class="table-wrap">
   <table class="prices">
-    <thead><tr><th scope="col">{first}</th><th scope="col">Ce include</th>{hasTime && <th scope="col">Termen</th>}{prices && <th scope="col">Preț</th>}</tr></thead>
+    <thead><tr><th scope="col">{first}</th><th scope="col">Ce include</th>{hasTime && <th scope="col">Termen</th>}<th scope="col">Preț</th></tr></thead>
     <tbody>
       {rows.map((r) => (
-        <tr><td>{r.name}</td><td>{r.what}</td>{hasTime && <td class="t">{r.time}</td>}{prices && <td class="p">{r.price}</td>}</tr>
+        <tr><td>{r.name}</td><td>{r.what}</td>{hasTime && <td class="t">{r.time}</td>}<td class="p">{r.price}</td></tr>
       ))}
     </tbody>
   </table>

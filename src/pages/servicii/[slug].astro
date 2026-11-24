@@ -14,9 +14,9 @@ const { s } = Astro.props as { s: Service };
 const others = services.filter((o) => o.slug !== s.slug).slice(0, 3).map((o) => o.slug);
 const rowLabel = s.slug === 'abonament-design' ? 'Plan' : s.slug === 'site-uri' ? 'Pachet' : 'Serviciu';
 ---
-<Base title={s.title} description={`${s.title}. ${s.short}`}>
+<Base title={s.title} description={`${s.title} pentru firme mici, de la ${s.from}. ${s.short}`}>
   <PageHead title={s.title} lead={s.intro} crumbs={[{ href: '/servicii', label: 'Servicii' }, { href: `/servicii/${s.slug}`, label: s.title }]}>
-    <div class="ctas" data-reveal><a class="btn dark" href="/cere-oferta"><span class="dot"></span>Cere ofertă</a><a class="btn ghost" href={`/preturi#${s.slug}`}>Vezi prețurile</a></div>
+    <div class="ctas" data-reveal><a class="btn dark" href="/cere-oferta"><span class="dot"></span>Cere ofertă</a><span class="status">de la <b style="color:var(--ink);margin-left:4px">{s.from}</b></span></div>
   </PageHead>
 
   <section class="in sec split">
@@ -25,8 +25,9 @@ const rowLabel = s.slug === 'abonament-design' ? 'Plan' : s.slug === 'site-uri' 
   </section>
 
   <section class="in sec">
-    <div class="sec-head"><h2>Variante.</h2><a class="link" href={`/preturi#${s.slug}`}>Vezi prețurile</a></div>
-    <PriceTable rows={s.rows} first={rowLabel} prices={false} />
+    <div class="sec-head"><h2>Prețuri.</h2><p>Prețuri în euro, fără TVA. Plata se face în lei, la cursul BNR din ziua facturării.</p></div>
+    <PriceTable rows={s.rows} first={rowLabel} />
+    {s.note && <p class="note-line">{s.note}</p>}
   </section>
 
   <section class="in sec split">

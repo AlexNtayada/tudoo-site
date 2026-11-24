@@ -11,7 +11,8 @@ const list = only ? services.filter((s) => only.includes(s.slug)) : services;
       <h3>{s.title}</h3>
       <p>{s.short}</p>
       <ul class="checks">{s.bullets.slice(0, 4).map((b) => <li>{b}</li>)}</ul>
-      <span class="more">Află mai mult →</span>
+      <div class="price">de la<b>{s.from}</b></div>
+      <span class="more">Detalii și prețuri →</span>
     </a>
   ))}
 </div>

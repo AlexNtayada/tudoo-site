@@ -41,7 +41,7 @@ export const services: Service[] = [
     num: '01',
     title: 'Site-uri și aplicații',
     short: 'De la o pagină simplă la un site cu mai multe pagini sau o aplicație web.',
-    from: '600 €',
+    from: '900 €',
     intro:
       'Facem site-uri care arată bine pe orice ecran, se încarcă repede și îi ajută pe clienți să te contacteze. Știi prețul și termenul înainte să începem.',
     bullets: [
@@ -53,13 +53,14 @@ export const services: Service[] = [
       '30 de zile de suport după lansare',
     ],
     rows: [
-      { name: 'Start', what: '1 pagină pe un șablon adaptat la culorile firmei, formular de contact', time: '5 zile lucrătoare', price: '600 €' },
       { name: 'Landing page', what: '1 pagină cu design de la zero, 6–8 secțiuni, 2 runde de modificări', time: '10 zile lucrătoare', price: '900 €' },
-      { name: 'Site de prezentare', what: 'Până la 5 pagini, blog simplu, 2 runde de modificări', time: '2–3 săptămâni', price: '1.200 €' },
-      { name: 'Site extins', what: '6–12 pagini, blog, a doua limbă opțională, 3 runde de modificări', time: '3–4 săptămâni', price: 'de la 1.500 €' },
-      { name: 'Aplicație web simplă', what: 'Programări sau rezervări, cont de client, panou de administrare', time: '5–8 săptămâni', price: 'de la 3.000 €' },
+      { name: 'Site de prezentare', what: 'Până la 5 pagini, blog simplu, 2 runde de modificări', time: '2–3 săptămâni', price: '1.300 €' },
+      { name: 'Site extins', what: 'Până la 10 pagini, blog, a doua limbă opțională, 3 runde de modificări', time: '3–4 săptămâni', price: '1.800 €' },
+      { name: 'Mini-aplicație', what: 'Un singur instrument: programări simple, calculator de ofertă, configurator sau formular avansat', time: '2–3 săptămâni', price: '900 €' },
+      { name: 'Aplicație simplă', what: 'Programări sau rezervări, conturi de client, panou de administrare', time: '4–6 săptămâni', price: 'de la 1.900 €' },
+      { name: 'Aplicație completă', what: 'Plăți online, roluri de utilizator, integrări cu alte sisteme', time: 'după ofertă', price: 'de la 3.500 €' },
     ],
-    note: 'O pagină în plus față de pachet costă 120 €.',
+    note: 'Regula e simplă: 900 € pentru prima pagină și 100 € pentru fiecare pagină în plus. Peste 10 pagini, fiecare pagină nouă costă 100 €.',
     faq: [
       { q: 'Al cui e site-ul după lansare?', a: 'Al tău. Domeniul, conținutul și codul îți aparțin, iar la cerere îți predăm toate accesele.' },
       { q: 'Pot modifica singur textele?', a: 'Da. Îți arătăm cum, iar dacă preferi, modificările mici intră în abonamentul de mentenanță.' },
@@ -96,7 +97,7 @@ export const services: Service[] = [
     num: '03',
     title: 'Design UI/UX',
     short: 'Ecrane pentru aplicații și site-uri, gândite să fie ușor de folosit.',
-    from: '250 €',
+    from: '500 €',
     intro:
       'Desenăm în Figma ecrane clare pentru site-uri și aplicații, cu prototip clicabil. Poți testa ideea cu utilizatori sau o poți arăta investitorilor înainte să plătești programarea.',
     bullets: [
@@ -108,8 +109,8 @@ export const services: Service[] = [
       'Fișiere pregătite pentru programare',
     ],
     rows: [
-      { name: 'Audit UX', what: 'Analiza unui site sau a unei aplicații existente, raport cu problemele și soluțiile, în ordinea importanței', time: '5 zile', price: '250 €' },
-      { name: 'Redesign de site', what: 'Design nou în Figma pentru un site existent, până la 5 pagini, 2 runde de modificări', time: '1–2 săptămâni', price: 'de la 600 €' },
+      { name: 'Audit UX', what: 'Analiza unui site sau a unei aplicații existente, raport cu problemele și soluțiile, în ordinea importanței', time: '5 zile', price: '500 €' },
+      { name: 'Redesign de site', what: 'Design nou în Figma pentru un site existent, până la 5 pagini, 2 runde de modificări', time: '1–2 săptămâni', price: 'de la 900 €' },
       { name: 'Prototip MVP', what: 'Fluxul principal al unei aplicații, 8–10 ecrane, prototip clicabil pentru teste sau investitori', time: '2 săptămâni', price: '900 €' },
       { name: 'Design de aplicație', what: 'Până la 20 de ecrane web sau mobile, prototip clicabil, fișiere pregătite pentru programare', time: '3–4 săptămâni', price: 'de la 1.500 €' },
       { name: 'Design system', what: 'Componente, culori, tipografie și reguli în Figma, pentru un produs care crește', time: '2–3 săptămâni', price: 'de la 800 €' },
@@ -189,6 +190,7 @@ export const services: Service[] = [
     rows: [
       { name: 'Esențial', what: 'Găzduire, SSL, backup săptămânal, actualizări, 30 de minute de modificări pe lună', price: '29 €/lună' },
       { name: 'Plus', what: 'Tot din Esențial, 2 ore de modificări pe lună, răspuns în aceeași zi', price: '59 €/lună' },
+      { name: 'Aplicație', what: 'Pentru aplicații web: monitorizare, backup zilnic, actualizări, 3 ore de modificări pe lună', price: '99 €/lună' },
     ],
     faq: [
       { q: 'Pot lua mentenanță pentru un site făcut de altcineva?', a: 'Da, după ce ne uităm la el. Îți spunem dacă se poate și ce costă.' },
@@ -204,8 +206,8 @@ export const extras: PriceRow[] = [
 
 export const bundles = [
   { name: 'Lansare rapidă', what: 'Logo + landing page', was: '1.150 €', price: '990 €' },
-  { name: 'Firmă nouă', what: 'Logo + ghid de brand, site de prezentare', was: '1.650 €', price: '1.490 €' },
-  { name: 'Produs digital', what: 'Design de aplicație + aplicație web simplă', was: '4.500 €', price: '3.990 €' },
+  { name: 'Firmă nouă', what: 'Logo + ghid de brand, site de prezentare', was: '1.750 €', price: '1.590 €' },
+  { name: 'Produs digital', what: 'Design de aplicație + aplicație simplă', was: '3.400 €', price: '2.990 €' },
 ];
 
 export const steps = [
@@ -227,7 +229,7 @@ export const payment = [
 
 export const faqs = [
   ...payment,
-  { q: 'În cât timp e gata un site?', a: 'Între 5 zile lucrătoare pentru pachetul Start și 3–4 săptămâni pentru un site extins. Termenul exact e scris în ofertă.' },
+  { q: 'În cât timp e gata un site?', a: 'Între 10 zile lucrătoare pentru un landing page și 3–4 săptămâni pentru un site extins. Termenul exact e scris în ofertă.' },
   { q: 'Al cui e site-ul după lansare?', a: 'Al tău. Domeniul, conținutul și codul îți aparțin.' },
   { q: 'Ce se întâmplă dacă nu-mi place designul?', a: 'Fiecare pachet are runde de modificări incluse. Lucrăm până ești mulțumit în limita lor, iar orice extra are prețul stabilit dinainte.' },
   { q: 'Lucrați doar cu firme din orașul vostru?', a: 'Nu. Lucrăm cu firme din toată țara, la telefon și pe video.' },

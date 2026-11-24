@@ -4,7 +4,7 @@ interface Props { short?: boolean }
 const { short = false } = Astro.props;
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || '';
 const types = ['Site', 'Magazin online', 'Aplicație', 'Design UI/UX', 'Logo și brand', 'Abonament de design', 'Mentenanță'];
-const budgets = ['Sub 600 €', '600–1.000 €', '1.000–1.500 €', '1.500–3.000 €', 'Peste 3.000 €', 'Nu știu încă'];
+const budgets = ['Sub 900 €', '900–1.500 €', '1.500–3.000 €', 'Peste 3.000 €', 'Nu știu încă'];
 const id = short ? 'f2' : 'f1';
 ---
 <form class="form" data-form data-endpoint={endpoint} data-email={company.email} novalidate>

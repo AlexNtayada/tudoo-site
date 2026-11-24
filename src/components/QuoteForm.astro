@@ -3,7 +3,7 @@ import { company } from '../data/site';
 interface Props { short?: boolean }
 const { short = false } = Astro.props;
 const endpoint = import.meta.env.PUBLIC_FORM_ENDPOINT || '';
-const types = ['Site', 'Magazin online', 'Aplicație', 'Design UI/UX', 'Logo și brand', 'Abonament de design', 'Mentenanță'];
+const types = ['Site', 'Magazin online', 'Aplicație', 'Design UI/UX', 'Logo și brand', 'Abonament de design'];
 const budgets = ['Sub 900 €', '900–1.500 €', '1.500–3.000 €', 'Peste 3.000 €', 'Nu știu încă'];
 const id = short ? 'f2' : 'f1';
 ---

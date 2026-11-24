@@ -7,7 +7,7 @@ import Cta from '../components/Cta.astro';
 import { services, extras, bundles, payment } from '../data/site';
 const bundleRows = bundles.map((b) => ({ name: b.name, what: b.what, price: b.price, was: b.was }));
 ---
-<Base title="Prețuri" description="Toate prețurile Tudoo: site-uri și aplicații de la 900 €, design UI/UX de la 500 €, logo 250 €, mentenanță de la 29 €/lună.">
+<Base title="Prețuri" description="Toate prețurile Tudoo: site-uri și aplicații de la 900 €, design UI/UX de la 500 €, logo de la 250 €.">
   <PageHead title="Prețuri fixe, <em>știute de la început.</em>" lead="Toate prețurile sunt în euro, fără TVA. Plata se face în lei, la cursul BNR din ziua facturării: 50% avans, 50% la lansare." crumbs={[{ href: '/preturi', label: 'Prețuri' }]} />
 
   {services.map((s) => (

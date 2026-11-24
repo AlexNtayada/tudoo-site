@@ -63,7 +63,7 @@ export const services: Service[] = [
     note: 'Regula e simplă: 900 € pentru prima pagină și 100 € pentru fiecare pagină în plus. Peste 10 pagini, fiecare pagină nouă costă 100 €.',
     faq: [
       { q: 'Al cui e site-ul după lansare?', a: 'Al tău. Domeniul, conținutul și codul îți aparțin, iar la cerere îți predăm toate accesele.' },
-      { q: 'Pot modifica singur textele?', a: 'Da. Îți arătăm cum, iar dacă preferi, modificările mici intră în abonamentul de mentenanță.' },
+      { q: 'Pot modifica singur textele?', a: 'Da. Îți arătăm cum, iar dacă preferi, le facem noi la ora de lucru extra.' },
       { q: 'Ce trebuie să aduc eu?', a: 'Domeniul, logo-ul dacă ai unul, textele și pozele. Dacă nu le ai, le putem face noi contra cost.' },
     ],
   },
@@ -171,37 +171,11 @@ export const services: Service[] = [
       { q: 'Faceți și cărți de vizită sau flyere?', a: 'Nu. Ne ocupăm de logo și de ghidul de brand, pe care le poți folosi apoi la orice tipografie.' },
     ],
   },
-  {
-    slug: 'mentenanta',
-    num: '06',
-    title: 'Mentenanță',
-    short: 'Găzduire, backup, actualizări și modificări mici, în fiecare lună.',
-    from: '29 €/lună',
-    intro:
-      'După primul an, găzduirea intră în abonamentul de mentenanță. Ne ocupăm ca site-ul să meargă, să fie sigur și actualizat, iar tu ne trimiți modificările de care ai nevoie.',
-    bullets: [
-      'Găzduire și SSL',
-      'Backup săptămânal',
-      'Actualizări de securitate',
-      'Modificări mici în fiecare lună',
-      'Răspuns rapid',
-      'Fără contract pe termen lung',
-    ],
-    rows: [
-      { name: 'Esențial', what: 'Găzduire, SSL, backup săptămânal, actualizări, 30 de minute de modificări pe lună', price: '29 €/lună' },
-      { name: 'Plus', what: 'Tot din Esențial, 2 ore de modificări pe lună, răspuns în aceeași zi', price: '59 €/lună' },
-      { name: 'Aplicație', what: 'Pentru aplicații web: monitorizare, backup zilnic, actualizări, 3 ore de modificări pe lună', price: '99 €/lună' },
-    ],
-    faq: [
-      { q: 'Pot lua mentenanță pentru un site făcut de altcineva?', a: 'Da, după ce ne uităm la el. Îți spunem dacă se poate și ce costă.' },
-    ],
-  },
 ];
 
 export const extras: PriceRow[] = [
-  { name: 'Oră de lucru extra', what: 'Modificări în afara pachetului sau a abonamentului', price: '35 €/oră' },
+  { name: 'Oră de lucru extra', what: 'Modificări în afara pachetului sau a abonamentului de design', price: '100 €/oră' },
   { name: 'Texte pentru site', what: 'Scrise de noi, pe baza unei discuții de 30 de minute', price: '50 €/pagină' },
-  { name: 'Email profesional', what: 'Configurare adrese nume@firma.ro (Google Workspace sau Zoho)', price: '50 € o dată' },
 ];
 
 export const bundles = [
@@ -217,7 +191,7 @@ export const steps = [
   { t: 'Prima propunere de design', d: 'În 3–5 zile lucrătoare, urmată de rundele de modificări din pachet.' },
   { t: 'Construim site-ul', d: 'Și ți-l trimitem spre verificare pe un link de test.' },
   { t: 'Lansăm', d: 'Plătești restul de 50% și primești un ghid scurt de folosire.' },
-  { t: '30 de zile de suport gratuit', d: 'După lansare, apoi abonament de mentenanță opțional.' },
+  { t: '30 de zile de suport gratuit', d: 'După lansare, apoi modificări la cerere, plătite pe oră.' },
 ];
 
 export const payment = [
